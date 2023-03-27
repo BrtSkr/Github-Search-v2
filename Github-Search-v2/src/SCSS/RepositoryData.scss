@@ -1,0 +1,47 @@
+// red #a83e3e;
+$border-width: .15rem;
+.container-repository{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    .repository{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        background: #31313185;
+        width: 25rem;
+        border-radius: .3rem;
+        padding: .5rem;
+        transition: .3s all;
+        border: $border-width solid transparent;
+        &:hover{
+            border: $border-width solid rgb(255, 248, 225);
+            transform: scale(1.05);
+        }
+        p {
+        margin: 0;
+        font-size: 1.2rem;
+        }
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 5rem;
+            height: 3rem;
+            background: rgb(255, 248, 225);
+            color: rgba(0, 0, 0, 0.637);
+            border-radius: .5rem;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: .3s all;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+}

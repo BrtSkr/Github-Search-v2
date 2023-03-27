@@ -1,0 +1,65 @@
+.githubData{
+    background: #31313185;
+    max-width: 95%;
+    margin: auto;
+    padding: 1rem;
+    border-radius: .2rem;
+    .githubData-input{
+        display: flex;
+        justify-content: center;
+        >input {
+            background: #222;
+            color: rgba(255, 255, 255, 0.747);
+            font-size: 1.1rem;
+            width: 22.5rem;
+            height: 2.5rem;
+            border: none;
+            border-radius: .2rem 0 0 .2rem;
+            padding: 0 0 0 1rem;
+            transition: .3s all;
+            &:hover{
+                background: #222222c0;
+            }
+            &:focus, &:focus-within, &:focus-visible{
+            outline: none;
+            }
+        }
+        >button{
+            height: 2.5rem;
+            padding: .85rem;
+            background: rgb(255, 248, 225);
+            color: black;
+            height: 2.5rem;
+            border: none;
+            border-radius: 0 .2rem .2rem 0;
+            transition: .3s all;
+            cursor: pointer;
+            &:hover{
+                background: rgba(255, 248, 225, 0.651);
+            }
+        }
+    }
+    .githubData-user{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        .githubData--user-block{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            p, a{
+                color: white;
+                text-decoration: none;
+                font-size: 1.2rem;
+                margin: 0;
+            }
+        }
+        img{
+            width: 15rem;
+            height: 15rem;
+            border: .2rem solid rgb(0, 0, 0);
+            border-radius: 10rem 10rem;
+        }
+
+    }
+}
