@@ -1,37 +1,76 @@
 <template>
   <div>
-    <GithubData @search="handleSearch" :api-data="apiData"/>
-    <RepositoryData :repository-data="repoData" :userData="apiData"/>
+    <GithubData
+      @search="handleValue"
+      :api-data="searchState.apiData"
+      :starred-data="searchState.starredData"
+    />
+    <RepositoryData
+      @sort="handleSort"
+      @direction="handleDirection"
+      :repository-data="searchState.repoData"
+      :userData="searchState.apiData"
+    />
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import GithubData from './components/GithubData.vue';
-import RepositoryData from './components/RepositoryData.vue';
-import axios from 'axios'
+import { defineComponent, reactive } from "vue";
+import GithubData from "./components/GithubData.vue";
+import RepositoryData from "./components/RepositoryData.vue";
+import axios from "axios";
 
 export default defineComponent({
   components: { GithubData, RepositoryData },
-  data() {
-  return {
-    apiData: null,
-    repoData: null
-  }
-  },
-  methods: {
-    async handleSearch(value) {
+  emits: ["sort", "direction"],
+  setup() {
+    const searchState = reactive({
+      apiData: null,
+      repoData: null,
+      starredData: null,
+      value: "",
+      sort: "default",
+      direction: "desc",
+    });
+    const handleSearch = async () => {
       try {
-        const response = await axios.get(`https://api.github.com/users/${value}`);
-        const repoResponse = await axios.get(`https://api.github.com/users/${value}/repos`);
-        this.apiData = response.data;
-        this.repoData = repoResponse.data;
-        console.log(response.data, 'Response data in App component');
-        console.log(repoResponse, 'repoResponse data in App component')
+        const response = await axios.get(
+          `https://api.github.com/users/${searchState.value}`
+        );
+        const repoResponse = await axios.get(
+          `https://api.github.com/users/${searchState.value}/repos?sort=${searchState.sort}&direction=${searchState.direction}`
+        );
+        const starredResponse = await axios.get(
+          `https://api.github.com/users/${searchState.value}/starred`
+        );
+        searchState.apiData = response.data;
+        searchState.repoData = repoResponse.data;
+        searchState.starredData = starredResponse.data;
+        console.log(response.data, "Response data in App component");
+        console.log(repoResponse, "repoResponse data in App component");
       } catch (error) {
         console.error(error);
       }
-    }
-  }
-})
+    };
+    const handleSort = (sort) => {
+      searchState.sort = sort;
+      handleSearch(searchState.value);
+    };
+    const handleDirection = (direction) => {
+      searchState.direction = direction;
+      handleSearch(searchState.value);
+    };
+    const handleValue = (value) => {
+      searchState.value = value;
+      handleSearch(searchState.value);
+    };
+    return {
+      searchState,
+      handleSearch,
+      handleDirection,
+      handleSort,
+      handleValue,
+    };
+  },
+});
 </script>

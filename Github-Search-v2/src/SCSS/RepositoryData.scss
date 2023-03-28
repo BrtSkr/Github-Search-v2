@@ -1,5 +1,16 @@
 // red #a83e3e;
 $border-width: .15rem;
+.repository-top{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    select{
+        margin: auto 0;
+        width: 5rem;
+        height: 2rem;
+    }
+}
 .container-repository{
     display: flex;
     flex-direction: row;
@@ -12,7 +23,7 @@ $border-width: .15rem;
         flex-direction: column;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: .3rem;
         background: #31313185;
         width: 25rem;
         border-radius: .3rem;
@@ -39,6 +50,7 @@ $border-width: .15rem;
             text-decoration: none;
             font-size: 1.1rem;
             transition: .3s all;
+            margin: .5rem 0;
             &:hover{
                 transform: scale(1.1);
             }
