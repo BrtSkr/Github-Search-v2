@@ -1,24 +1,34 @@
 <template>
   <div v-if="userData" class="repository-top">
     <h1>Repositories: {{ userData.public_repos }}</h1>
-    <select v-model="sort" @change="$emit('sort',sort)" name="" id="">
-      <option value="default">Default</option>
+    <select v-model="sort" @change="$emit('sort', sort)" name="" id="">
       <option value="name">Name</option>
       <option value="updated">Last update</option>
       <option value="created">Creation date</option>
     </select>
-    <select v-model="direction" @change="$emit('direction',direction)" name="" id="">
+    <select
+      v-model="direction"
+      @change="$emit('direction', direction)"
+      name=""
+      id=""
+    >
       <option value="asc">Ascending</option>
       <option value="desc">Descending</option>
     </select>
   </div>
   <section class="container-repository">
     <div class="repository" v-for="repo in repositoryData" :key="repo.id">
-      <p>Name: {{ repo.name }}</p>
-      <p>ID: {{ repo.id }}</p>
-      <p>Language: {{ repo.language }}</p>
-      <p>Created at: {{ repo.created_at.slice(0, 10) }}</p>
-      <p>Last update: {{ repo.updated_at.slice(0, 10) }}</p>
+      <p class="repository-name">Name: {{ repo.name }}</p>
+      <p class="repository-muted">ID: {{ repo.id }}</p>
+      <p :class="addColors(repo.language)">
+        Language: <span>{{ repo.language }}</span>
+      </p>
+      <p class="repository-muted">
+        Created at: {{ repo.created_at.slice(0, 10) }}
+      </p>
+      <p class="repository-muted">
+        Last update: {{ repo.updated_at.slice(0, 10) }}
+      </p>
       <a :href="repo.html_url" target="_blank">Check</a>
     </div>
   </section>
@@ -28,10 +38,11 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
+  emits: ["sort", "direction"],
   data() {
     return {
-      sort: "",
-      direction: '',
+      sort: "name",
+      direction: "asc",
     };
   },
   props: {
@@ -46,9 +57,44 @@ export default defineComponent({
   },
 
   methods: {
-    handleEmit(){
-       
-    }
+    addColors(item) {
+      if (item === "HTML") {
+        return "html";
+      }
+      if (item === "JavaScript") {
+        return "javascript";
+      }
+      if (item === "Vue") {
+        return "vue";
+      }
+      if (item === "SCSS" || item === "SASS") {
+        return "sass";
+      }
+      if (item === "CSS") {
+        return "css";
+      }
+      if (item === "Python") {
+        return "python";
+      }
+      if (item === "C#") {
+        return "csharp";
+      }
+      if (item === "TypeScript") {
+        return "typescript";
+      }
+      if (item === "Kotlin") {
+        return "kotlin";
+      }
+      if (item === "C") {
+        return "c";
+      }
+      if (item === "C++") {
+        return "cpp";
+      }
+      if (item === "Rust") {
+        return "rust";
+      }
+    },
   },
 });
 </script>

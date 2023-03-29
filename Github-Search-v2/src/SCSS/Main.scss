@@ -1,23 +1,68 @@
-@import './RepositoryData.scss';
+@import "./RepositoryData.scss";
+
 @font-face {
-    font-family: 'readex';
-    src: url(../assets/ReadexPro-Regular.ttf);
-}
-:root {
-    //font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    font-family: 'readex';
-    line-height: 1.5;
-    font-weight: 400;
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #000000;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-}
-body{
-    margin: 0 8px;
+  font-family: "readex";
+  src: url(../assets/ReadexPro-Regular.ttf);
 }
 
+:root {
+  //font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "readex";
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #000000;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0 2rem;
+
+  img {
+    filter: brightness(0.8) contrast(1.2);
+  }
+}
+.html {
+  color: #e34c26;
+}
+.javascript {
+  color: #f1e05a;
+}
+.typescript {
+  color: #3178c6;
+}
+.vue {
+  color: #41b883;
+}
+.python {
+  color: #3572a5;
+}
+.csharp {
+  color: #178600;
+}
+.sass {
+  color: #c6538c;
+}
+.css {
+  color: #563d7c;
+}
+.rust {
+  color: #dea584;
+}
+.cpp {
+  color: #f34b7d;
+}
+.c {
+  color: #555555;
+}
+.assembly {
+  color: #6e4c13;
+}
+.kotlin {
+  color: #a97bff;
+}

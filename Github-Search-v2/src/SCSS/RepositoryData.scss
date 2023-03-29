@@ -1,14 +1,20 @@
 // red #a83e3e;
 $border-width: .15rem;
+$border-radius-card: .3rem;
 .repository-top{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
-    select{
+    background: rgba(49, 49, 49, 0.5215686275);
+    padding: 0 1rem;
+    border-radius: $border-radius-card;
+    >select{
         margin: auto 0;
-        width: 5rem;
+        width: 10rem;
         height: 2rem;
+        border: none;
+        font-size: 1.2rem;
     }
 }
 .container-repository{
@@ -17,7 +23,7 @@ $border-width: .15rem;
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
-    
+    margin: 2rem 0 0 0;
     .repository{
         display: flex;
         flex-direction: column;
@@ -34,6 +40,12 @@ $border-width: .15rem;
             border: $border-width solid rgb(255, 248, 225);
             transform: scale(1.05);
         }
+        .repository-name{
+            color: #58a6ff;
+        }
+        .repository-muted{
+            color: #8b949e;
+        }
         p {
         margin: 0;
         font-size: 1.2rem;
@@ -44,8 +56,8 @@ $border-width: .15rem;
             justify-content: center;
             width: 5rem;
             height: 3rem;
-            background: rgb(255, 248, 225);
-            color: rgba(0, 0, 0, 0.637);
+            background: #93baf5;
+            color: #000000;
             border-radius: .5rem;
             text-decoration: none;
             font-size: 1.1rem;

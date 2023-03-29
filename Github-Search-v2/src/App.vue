@@ -22,14 +22,13 @@ import axios from "axios";
 
 export default defineComponent({
   components: { GithubData, RepositoryData },
-  emits: ["sort", "direction"],
   setup() {
     const searchState = reactive({
       apiData: null,
       repoData: null,
       starredData: null,
       value: "",
-      sort: "default",
+      sort: "",
       direction: "desc",
     });
     const handleSearch = async () => {
@@ -47,7 +46,8 @@ export default defineComponent({
         searchState.repoData = repoResponse.data;
         searchState.starredData = starredResponse.data;
         console.log(response.data, "Response data in App component");
-        console.log(repoResponse, "repoResponse data in App component");
+        console.log(repoResponse.data, "repoResponse data in App component");
+        console.log(starredResponse.data, "starredResponse in App component");
       } catch (error) {
         console.error(error);
       }
