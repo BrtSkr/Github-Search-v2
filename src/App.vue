@@ -16,8 +16,8 @@
 
 <script>
 import { defineComponent, reactive } from "vue";
-import GithubData from "./components/GithubData.vue";
-import RepositoryData from "./components/RepositoryData.vue";
+import GithubData from "./components/GithubData/GithubData.vue";
+import RepositoryData from "./components/RepositoryData/RepositoryData.vue";
 import axios from "axios";
 
 export default defineComponent({

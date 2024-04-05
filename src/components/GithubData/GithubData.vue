@@ -31,7 +31,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import "../SCSS/GithubData.scss";
+import "./GithubData.scss";
 export default defineComponent({
   data() {
     return {

@@ -12,15 +12,14 @@
       name=""
       id=""
     >
-      <option value="asc">Ascending</option>
       <option value="desc">Descending</option>
+      <option value="asc">Ascending</option>
     </select>
   </div>
   <section class="container-repository">
     <div class="repository" v-for="repo in repositoryData" :key="repo.id">
       <p class="repository-name">Name: {{ repo.name }}</p>
-      <p class="repository-muted">ID: {{ repo.id }}</p>
-      <p :class="addColors(repo.language)">
+      <p>
         Language: <span>{{ repo.language }}</span>
       </p>
       <p class="repository-muted">
@@ -29,6 +28,7 @@
       <p class="repository-muted">
         Last update: {{ repo.updated_at.slice(0, 10) }}
       </p>
+      <p class="repository-muted">ID: {{ repo.id }}</p>
       <a :href="repo.html_url" target="_blank">Check</a>
     </div>
   </section>
@@ -36,7 +36,7 @@
 
 <script>
 import { defineComponent } from "vue";
-
+import './RepositoryData.scss';
 export default defineComponent({
   emits: ["sort", "direction"],
   data() {
